@@ -165,36 +165,36 @@ x \cdot (x + y) &= x \cdot x + x \cdot y & \text{(por distributividad)} \\
 \section{}3. Utilizando mapas de Karnaugh, reducir las siguientes expresiones y dibujar los
 circuitos reducidos:
 
-\subsection*{a) Expresión: \( xy + \overline{x}y \)}
+\subsection*{a) Expresión: \( xy + x\overline{y} \)}
 
 \textbf{Mapa de Karnaugh:}
 \[
 \begin{array}{c|cc}
-y \setminus x & 0 & 1 \\
+x \setminus y & 0 & 1 \\
 \hline
-0 & 0 & 1 \\
-1 & 1 & 0 \\
+0 & 0 & 0 \\
+1 & 1 & 1 \\
 \end{array}
 \]
 
 Se observa que se pueden agrupar los unos en una fila, lo que reduce la expresión a:
 \[
-y
+x
 \]
 
-\textbf{Expresión reducida:} \( y \)
+\textbf{Expresión reducida:} \( x \)
 
-\textbf{Circuito lógico:} Un solo cable que representa la variable \( y \).
+\textbf{Circuito lógico:} Un solo cable que representa la variable \( x \).
 
 \subsection*{b) Expresión: \( \overline{x}y + \overline{x}\overline{y} \)}
 
 \textbf{Mapa de Karnaugh:}
 \[
 \begin{array}{c|cc}
-y \setminus x & 0 & 1 \\
+x \setminus y & 0 & 1 \\
 \hline
-0 & 1 & 0 \\
-1 & 1 & 0 \\
+0 & 1 & 1 \\
+1 & 0 & 0 \\
 \end{array}
 \]
 
@@ -212,7 +212,7 @@ Los términos se pueden agrupar en la columna de \( \overline{x} \), resultando 
 \textbf{Mapa de Karnaugh:}
 \[
 \begin{array}{c|cccc}
-yz \setminus x & 00 & 01 & 11 & 10 \\
+x \setminus yz & 00 & 01 & 11 & 10 \\
 \hline
 0 & 0 & 0 & 1 & 0 \\
 1 & 0 & 0 & 1 & 0 \\
@@ -228,24 +228,24 @@ yz
 
 \textbf{Circuito lógico:} Un AND entre \( y \) y \( z \).
 
-\subsection*{d) Expresión: \( xyz' + xy'z' + \overline{x}yz' + \overline{x}y'z' \)}
+\subsection*{d) Expresión: \( xy\overline{z} \ + x\overline{y} \overline{z} \ + \overline{x}y\overline{z} \ + \overline{x}\overline{y} \overline{z} \)}
 
 \textbf{Mapa de Karnaugh:}
 \[
 \begin{array}{c|cccc}
-yx \setminus z & 00 & 01 & 11 & 10 \\
+x \setminus yz & 00 & 01 & 11 & 10 \\
 \hline
-0 & 1 & 1 & 0 & 0 \\
-1 & 1 & 1 & 0 & 0 \\
+0 & 1 & 0 & 0 & 1 \\
+1 & 1 & 0 & 0 & 1 \\
 \end{array}
 \]
 
-Se agrupan los unos en la fila de \( z' \), obteniendo:
+Se agrupan los unos en la fila de \( \overline{z} \), obteniendo:
 \[
-z'
+\overline{z} \
 \]
 
-\textbf{Expresión reducida:} \( z' \)
+\textbf{Expresión reducida:} \( \overline{z} \)
 
 \textbf{Circuito lógico:} Un inversor para la variable \( z \).
 
@@ -254,10 +254,10 @@ z'
 \textbf{Mapa de Karnaugh:}
 \[
 \begin{array}{c|cc}
-y \setminus x & 0 & 1 \\
+x \setminus y & 0 & 1 \\
 \hline
-0 & 1 & 0 \\
-1 & 1 & 1 \\
+0 & 1 & 1 \\
+1 & 0 & 1 \\
 \end{array}
 \]
 
@@ -275,7 +275,7 @@ y
 \textbf{Mapa de Karnaugh:}
 \[
 \begin{array}{c|cc}
-y \setminus x & 0 & 1 \\
+x \setminus y & 0 & 1 \\
 \hline
 0 & 1 & 1 \\
 1 & 1 & 1 \\
@@ -290,6 +290,8 @@ Todos los valores son 1, lo que significa que:
 \textbf{Expresión reducida:} \( 1 \)
 
 \textbf{Circuito lógico:} Una constante lógica de 1.
+
+\includegraphics[height=10.0cm]{./imagenes/circuitos.png}
 
 
 
