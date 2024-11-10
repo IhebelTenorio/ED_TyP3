@@ -61,7 +61,98 @@
 \section*{Indicaciones}
 
 %====== Ejercicio 01 ======%
+\section{} 1. Asumiendo los axiomas de un algebra booleana A = {{0,1},+,·} demostrar las
+siguientes propiedades:
+\section*{Demostraciones}
 
+\subsection*{a) Idempotencia}
+
+Para la idempotencia de la suma: \( x + x = x \) y \( x \cdot x = x \).
+
+\textbf{Para \( x + x = x \):}
+
+\[
+\begin{aligned}
+x + x &= x + x \cdot 1 & \text{(ya que 1 es el elemento neutro del producto)} \\
+      &= x + x \cdot \overline{x} & \text{(por el complemento: \( x \cdot \overline{x} = 0 \))} \\
+      &= x \cdot (1 + \overline{x}) & \text{(por distributividad)} \\
+      &= x \cdot 1 = x.
+\end{aligned}
+\]
+
+\textbf{Para \( x \cdot x = x \):}
+
+\[
+\begin{aligned}
+x \cdot x &= x \cdot x + 0 & \text{(agregando el neutro aditivo)} \\
+          &= x \cdot x + x \cdot \overline{x} & \text{(ya que \( x \cdot \overline{x} = 0 \))} \\
+          &= x \cdot (x + \overline{x}) & \text{(por factorización usando la distributividad)} \\
+          &= x \cdot 1 & \text{(dado que \( x + \overline{x} = 1 \))} \\
+          &= x.
+\end{aligned}
+\]
+
+\subsection*{b) Idempotencia del complemento}
+
+Para demostrar que \( \overline{\overline{x}} = x \), usamos que el complemento satisface \( x + \overline{x} = 1 \) y \( x \cdot \overline{x} = 0 \).
+
+\[
+\begin{aligned}
+\overline{\overline{x}} &= x + 0 & \text{(ya que 0 es el neutro de la suma)} \\
+                        &= x + (x \cdot \overline{x}) & \text{(por el complemento: \( x \cdot \overline{x} = 0 \))} \\
+                        &= x \cdot 1 = x.
+\end{aligned}
+\]
+
+\subsection*{c) Elemento dominante}
+
+Para \( x + 1 = 1 \) y \( x \cdot 0 = 0 \):
+
+\textbf{Para \( x + 1 = 1 \):}
+
+\[
+\begin{aligned}
+x + 1 &= (x + 1) \cdot 1 & \text{(por el elemento neutro del producto)} \\
+      &= (x + 1) \cdot (x + \overline{x}) & \text{(por complemento: \( x + \overline{x} = 1 \))} \\
+      &= x + 1 = 1.
+\end{aligned}
+\]
+
+\textbf{Para \( x \cdot 0 = 0 \):}
+
+\[
+\begin{aligned}
+x \cdot 0 &= x \cdot (x \cdot \overline{x}) & \text{(ya que \( x \cdot \overline{x} = 0 \))} \\
+          &= (x \cdot x) \cdot \overline{x} & \text{(por asociatividad)} \\
+          &= x \cdot \overline{x} & \text{(ya que \( x \cdot x = x \) por idempotencia)} \\
+          &= 0.
+\end{aligned}
+\]
+
+Esto es directo por la propiedad de absorción del producto con el elemento neutro \( 0 \).
+
+\subsection*{d) Absorción}
+
+Para \( x + x \cdot y = x \) y \( x \cdot (x + y) = x \):
+
+\textbf{Para \( x + x \cdot y = x \):}
+
+\[
+\begin{aligned}
+x + x \cdot y &= x \cdot 1 + x \cdot y & \text{(por el elemento neutro de la suma)} \\
+              &= x \cdot (1 + y) & \text{(por distributividad)} \\
+              &= x.
+\end{aligned}
+\]
+
+\textbf{Para \( x \cdot (x + y) = x \):}
+
+\[
+\begin{aligned}
+x \cdot (x + y) &= x \cdot x + x \cdot y & \text{(por distributividad)} \\
+                &= x + x \cdot y = x. & \text{(por la propiedad de absorción)}
+\end{aligned}
+\]
 
 
 
@@ -71,6 +162,134 @@
 
 
 %====== Ejercicio 03 ======%
+\section{}3. Utilizando mapas de Karnaugh, reducir las siguientes expresiones y dibujar los
+circuitos reducidos:
+
+\subsection*{a) Expresión: \( xy + \overline{x}y \)}
+
+\textbf{Mapa de Karnaugh:}
+\[
+\begin{array}{c|cc}
+y \setminus x & 0 & 1 \\
+\hline
+0 & 0 & 1 \\
+1 & 1 & 0 \\
+\end{array}
+\]
+
+Se observa que se pueden agrupar los unos en una fila, lo que reduce la expresión a:
+\[
+y
+\]
+
+\textbf{Expresión reducida:} \( y \)
+
+\textbf{Circuito lógico:} Un solo cable que representa la variable \( y \).
+
+\subsection*{b) Expresión: \( \overline{x}y + \overline{x}\overline{y} \)}
+
+\textbf{Mapa de Karnaugh:}
+\[
+\begin{array}{c|cc}
+y \setminus x & 0 & 1 \\
+\hline
+0 & 1 & 0 \\
+1 & 1 & 0 \\
+\end{array}
+\]
+
+Los términos se pueden agrupar en la columna de \( \overline{x} \), resultando en:
+\[
+\overline{x}
+\]
+
+\textbf{Expresión reducida:} \( \overline{x} \)
+
+\textbf{Circuito lógico:} Un inversor para la variable \( x \).
+
+\subsection*{c) Expresión: \( xyz + \overline{x}yz \)}
+
+\textbf{Mapa de Karnaugh:}
+\[
+\begin{array}{c|cccc}
+yz \setminus x & 00 & 01 & 11 & 10 \\
+\hline
+0 & 0 & 0 & 1 & 0 \\
+1 & 0 & 0 & 1 & 0 \\
+\end{array}
+\]
+
+Agrupamos los términos \( xyz \) y \( \overline{x}yz \), lo que da como resultado:
+\[
+yz
+\]
+
+\textbf{Expresión reducida:} \( yz \)
+
+\textbf{Circuito lógico:} Un AND entre \( y \) y \( z \).
+
+\subsection*{d) Expresión: \( xyz' + xy'z' + \overline{x}yz' + \overline{x}y'z' \)}
+
+\textbf{Mapa de Karnaugh:}
+\[
+\begin{array}{c|cccc}
+yx \setminus z & 00 & 01 & 11 & 10 \\
+\hline
+0 & 1 & 1 & 0 & 0 \\
+1 & 1 & 1 & 0 & 0 \\
+\end{array}
+\]
+
+Se agrupan los unos en la fila de \( z' \), obteniendo:
+\[
+z'
+\]
+
+\textbf{Expresión reducida:} \( z' \)
+
+\textbf{Circuito lógico:} Un inversor para la variable \( z \).
+
+\subsection*{e) Expresión: \( \overline{x}\overline{y} + \overline{x}y + xy \)}
+
+\textbf{Mapa de Karnaugh:}
+\[
+\begin{array}{c|cc}
+y \setminus x & 0 & 1 \\
+\hline
+0 & 1 & 0 \\
+1 & 1 & 1 \\
+\end{array}
+\]
+
+Agrupamos los términos en la columna de \( y \), resultando en:
+\[
+y
+\]
+
+\textbf{Expresión reducida:} \( y \)
+
+\textbf{Circuito lógico:} Un solo cable que representa la variable \( y \).
+
+\subsection*{f) Expresión: \( \overline{x}\overline{y} + \overline{x}y + x + y \)}
+
+\textbf{Mapa de Karnaugh:}
+\[
+\begin{array}{c|cc}
+y \setminus x & 0 & 1 \\
+\hline
+0 & 1 & 1 \\
+1 & 1 & 1 \\
+\end{array}
+\]
+
+Todos los valores son 1, lo que significa que:
+\[
+1
+\]
+
+\textbf{Expresión reducida:} \( 1 \)
+
+\textbf{Circuito lógico:} Una constante lógica de 1.
 
 
 
@@ -86,21 +305,72 @@
 
 
 %====== Ejercicio 06 ======%
-%------   inciso a)  ------%
+\section{}6. Expresar las siguientes oraciones como formulas de la lógica de predicados; indicar las constantes, las variables, los cuantificadores y su alcance:
 
+\subsection*{a) "Hay algunos médicos que son odontólogos."}
 
-%------   inciso b)  ------%
+\textbf{Constantes:} Ninguna \\
+\textbf{Variables:} \( x \) (representa personas) \\
+\textbf{Cuantificadores:} Existencial (\( \exists \))
 
+\textbf{Fórmula:}
+\[
+\exists x \, (M(x) \land O(x))
+\]
 
-%------   inciso c)  ------%
+\textbf{Interpretación:} Existe al menos un \( x \) tal que \( x \) es médico \( (M(x)) \) y \( x \) es odontólogo \( (O(x)) \).
 
+\subsection*{b) "Ninguna planta es mamífero o pez."}
 
-%------   inciso d)  ------%
+\textbf{Constantes:} Ninguna \\
+\textbf{Variables:} \( x \) (representa seres vivos) \\
+\textbf{Cuantificadores:} Universal (\( \forall \))
 
+\textbf{Fórmula:}
+\[
+\forall x \, (P(x) \rightarrow \neg (M(x) \lor Z(x)))
+\]
 
-%------   inciso e)  ------%
+\textbf{Interpretación:} Para todo \( x \), si \( x \) es planta \( (P(x)) \), entonces \( x \) no es mamífero \( (M(x)) \) ni pez \( (Z(x)) \).
 
+\subsection*{c) "Cualquiera puede tomarle el pelo a la directora."}
 
+\textbf{Constantes:} Directora (\( D \)) \\
+\textbf{Variables:} \( x \) (representa personas) \\
+\textbf{Cuantificadores:} Universal (\( \forall \))
+
+\textbf{Fórmula:}
+\[
+\forall x \, T(x, D)
+\]
+
+\textbf{Interpretación:} Para todo \( x \), \( x \) puede tomarle el pelo a la directora \( (T(x, D)) \).
+
+\subsection*{d) "Hay un abogado a quien cualquiera le toma el pelo."}
+
+\textbf{Constantes:} Ninguna \\
+\textbf{Variables:} \( x, y \) (representan personas) \\
+\textbf{Cuantificadores:} Existencial (\( \exists \)) y Universal (\( \forall \))
+
+\textbf{Fórmula:}
+\[
+\exists x \, (A(x) \land \forall y \, T(y, x))
+\]
+
+\textbf{Interpretación:} Existe al menos un \( x \) tal que \( x \) es abogado \( (A(x)) \) y para todo \( y \), \( y \) le toma el pelo a \( x \) \( (T(y, x)) \).
+
+\subsection*{e) "Cada uno de los estudiantes aprobó el examen con 10."}
+
+\textbf{Constantes:} Nota \( 10 \) \\
+\textbf{Variables:} \( x \) (representa personas) \\
+\textbf{Cuantificadores:} Universal (\( \forall \))
+
+\textbf{Fórmula:}
+\[
+\forall x \, (E(x) \rightarrow A(x, 10))
+\]
+
+\textbf{Interpretación:} Para todo \( x \), si \( x \) es estudiante \( (E(x)) \), entonces \( x \) aprobó con nota 10 \( (A(x, 10)) \).
 %------   inciso f)  ------%
 
 
@@ -121,20 +391,71 @@
 
 
 %====== Ejercicio 07 ======%
-%------   inciso a)  ------%
+\section{}7. Por cada formula: 1) Clasificar la presencia de variables en libres y ligadas; 2)Indicar el alcance del cuantificador:
 
+\subsection*{a) \( R(x, y) \land L(y) \)}
 
-%------   inciso b)  ------%
+\textbf{Clasificación de variables:}
+\begin{itemize}
+    \item Variables libres: \( x \) y \( y \) (ninguna está ligada por un cuantificador).
+    \item Variables ligadas: Ninguna.
+\end{itemize}
 
+\textbf{Alcance de cuantificadores:} No hay cuantificadores en esta fórmula, por lo tanto, no hay alcance que indicar.
 
-%------   inciso c)  ------%
+\subsection*{b) \( \forall x \, R(x, f(x, y)) \land L(y) \)}
 
+\textbf{Clasificación de variables:}
+\begin{itemize}
+    \item Variables libres: \( y \).
+    \item Variables ligadas: \( x \) (está cuantificada por \( \forall x \)).
+\end{itemize}
 
-%------   inciso d)  ------%
+\textbf{Alcance del cuantificador:}
+\begin{itemize}
+    \item El cuantificador \( \forall x \) abarca \( R(x, f(x, y)) \). Es decir, su alcance es \( R(x, f(x, y)) \) únicamente.
+\end{itemize}
 
+\subsection*{c) \( \exists x \, \exists y \, R(x, y) \land L(x, y) \)}
 
-%------   inciso e)  ------%
+\textbf{Clasificación de variables:}
+\begin{itemize}
+    \item Variables libres: Ninguna (todas las variables están cuantificadas).
+    \item Variables ligadas: \( x \) y \( y \) (ambas están ligadas por los cuantificadores \( \exists x \) y \( \exists y \)).
+\end{itemize}
 
+\textbf{Alcance de los cuantificadores:}
+\begin{itemize}
+    \item El alcance de \( \exists x \) es toda la expresión \( \exists y \, (R(x, y) \land L(x, y)) \).
+    \item El alcance de \( \exists y \) es \( R(x, y) \land L(x, y) \).
+\end{itemize}
+
+\subsection*{d) \( \exists y \, L(x, y) \lor \exists z \, R(x, z) \)}
+
+\textbf{Clasificación de variables:}
+\begin{itemize}
+    \item Variables libres: \( x \).
+    \item Variables ligadas: \( y \) y \( z \) (ambas están cuantificadas por \( \exists y \) y \( \exists z \)).
+\end{itemize}
+
+\textbf{Alcance de los cuantificadores:}
+\begin{itemize}
+    \item El alcance de \( \exists y \) es \( L(x, y) \).
+    \item El alcance de \( \exists z \) es \( R(x, z) \).
+\end{itemize}
+
+\subsection*{e) \( \exists y \, R(a, y) \lor L(a) \)}
+
+\textbf{Clasificación de variables:}
+\begin{itemize}
+    \item Variables libres: Ninguna (las constantes como \( a \) no se consideran variables libres o ligadas).
+    \item Variables ligadas: \( y \) (está cuantificada por \( \exists y \)).
+\end{itemize}
+
+\textbf{Alcance del cuantificador:}
+\begin{itemize}
+    \item El alcance de \( \exists y \) es \( R(a, y) \).
+\end{itemize}
 
 %------   inciso f)  ------%
 
