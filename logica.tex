@@ -333,7 +333,28 @@ $E_4$ & $E_3$ & $E_2$ & $E_1$ & $S_3$ & $S_2$ & $S_1$ \\
 
 
 %====== Ejercicio 05 ======%
+\section*{Diseñar un circuito secuencial flip-flop SR, pero utilizando circuitos NAND y verificar que el resultado es el mismo que con las compuertas NOR}
+Tenemos primero el circuito con NOR.
+\begin{center}
+  \includegraphics[width=9cm]{./imagenes/Ej50.png}
+\end{center}
+Entonces, el nuevo circuito con compuertas NAND es el siguiente
+\begin{center}
+  \includegraphics[width=9cm]{./imagenes/Ej5.png}
+\end{center}
+A pesar de las diferencias en el comportamiento de las compuertas:
 
+\begin{itemize}
+    \item Ambos diseños pueden almacenar un bit de información, manteniendo el último estado cuando $S = R = 0$ (para NOR) o $S = R = 1$ (para NAND).
+    \item Las condiciones para \textit{Set} y \textit{Reset} son equivalentes, aunque están invertidas:
+    \begin{itemize}
+        \item En un flip-flop SR con \textbf{NAND}, un cero en $S$ o $R$ activa el \textit{Set} o \textit{Reset}.
+        \item En un flip-flop SR con \textbf{NOR}, un uno en $S$ o $R$ activa el \textit{Set} o \textit{Reset}.
+    \end{itemize}
+    \item La diferencia en la lógica se compensa al aplicar las entradas de manera opuesta, logrando el mismo comportamiento general.
+\end{itemize}
+
+Por lo tanto, el flip-flop SR construido con compuertas \textbf{NAND} es funcionalmente equivalente al de compuertas \textbf{NOR}, ya que ambos implementan un circuito de memoria capaz de almacenar y cambiar su estado en función de las entradas $S$ y $R$.
 
 
 
@@ -443,16 +464,16 @@ gato(x) := x es gato\\
 mamifero(x) := x es mamifero\\
 $$ \forall x (gato(x) \rightarrow mamifero(x))$$
 
-%------   inciso e)  ------%
+%------   inciso h)  ------%
 \subsection*{h) Un perro mordió a María}
 Constantes: Maria\\
 Variables: perros\\
 Cuantificadores: $\exists$ gato \\
 perro(x):=x es perro\\
 muerde(x,y):= x muerde a y\\
-$$\exists x (perro(x)^muerde(x,Maria))$$
+$$\exists x (perro(x) \land muerde(x,Maria))$$
 
-%------   inciso h)  ------%
+%------   inciso i)  ------%
 \subsection*{i) Las novelas de Cervantes son buenas y divertidas}
 Constante:Cervantes \\
 Variables: novelas\\
@@ -461,7 +482,8 @@ Cuantificadores: $\forall $ novelas\\
 novela(x):=x es novela de cervantes
 byd(x):= x es buena y divertida
 $$\forall x (novela(x) \rightarrow byd(x))$$
-%------   inciso i)  ------%
+
+%------   inciso j)  ------%
 \subsection*{j) Si todos los gatos son felinos, entonces todos los gatos son mamiferos}
 Constante:- \\
 Variable: gatos\\
@@ -470,13 +492,11 @@ Cuantificadores:$\forall $ gatos\\
 gato(x):= x es gato\\
 felino(x):= x es felino\\
 mamifero(x):= x es mamifero\\
-$$\forall x(gato(x)^felino(x) \rightarrow mamifero(x))$$
-%------   inciso j)  ------%
-\subsection*{k) }
+$$\forall x((gato(x) \land felino(x)) \rightarrow mamifero(x))$$
 
 
 %====== Ejercicio 07 ======%
-\section{}7. Por cada formula: 1) Clasificar la presencia de variables en libres y ligadas; 2)Indicar el alcance del cuantificador:
+\section*{7. Por cada formula: 1) Clasificar la presencia de variables en libres y ligadas; 2)Indicar el alcance del cuantificador:}
 
 \subsection*{a) \( R(x, y) \land L(y) \)}
 
@@ -572,7 +592,7 @@ $$\forall x(gato(x)^felino(x) \rightarrow mamifero(x))$$
 \end {itemize}
 
 %------   inciso h)  ------%
-\subsection*{h) $R(x,y,z) ^ \exists y R(y,x,z) \rightarrow \forall w I(x,y)$}
+\subsection*{h) $R(x,y,z) \land \exists y R(y,x,z) \rightarrow \forall w I(x,y)$}
 
 \textbf{Clasificacion de variables:}
 \begin{itemize}
