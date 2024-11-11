@@ -1,8 +1,5 @@
 \documentclass[11pt,letterpaper]{article}
 \usepackage[utf8]{inputenc}
-\usepackage{forest}
-\usepackage{tikz}
-\usetikzlibrary{trees}
 
 %----- Configuración del estilo del documento------%
 \usepackage[table]{xcolor}
@@ -13,7 +10,7 @@
 \pagestyle{fancy}
 \fancyhf{}
 \rfoot{\textit{Página \thepage \hspace{1pt} de \pageref{LastPage}}}
-
+\usepackage{array}
 
 %------ Paquetes matemáticos básicos --------%
 \usepackage{amsmath}
@@ -58,11 +55,10 @@
 
 %------ Fin de encabezado -------- %
 
-\section*{Indicaciones}
+
 
 %====== Ejercicio 01 ======%
-\section{} 1. Asumiendo los axiomas de un algebra booleana A = {{0,1},+,·} demostrar las
-siguientes propiedades:
+\section*{1. Asumiendo los axiomas de un algebra booleana A = \{\{0,1\},+,·\} demostrar las siguientes propiedades:}
 \section*{Demostraciones}
 
 \subsection*{a) Idempotencia}
@@ -71,8 +67,7 @@ Para la idempotencia de la suma: \( x + x = x \) y \( x \cdot x = x \).
 
 \textbf{Para \( x + x = x \):}
 
-\[
-\begin{aligned}
+\[\begin{aligned}
 x + x &= x + x \cdot 1 & \text{(ya que 1 es el elemento neutro del producto)} \\
       &= x + x \cdot \overline{x} & \text{(por el complemento: \( x \cdot \overline{x} = 0 \))} \\
       &= x \cdot (1 + \overline{x}) & \text{(por distributividad)} \\
@@ -157,18 +152,33 @@ x \cdot (x + y) &= x \cdot x + x \cdot y & \text{(por distributividad)} \\
 
 
 %====== Ejercicio 02 ======%
+\section*{Dibuja los circuitos lógicos para las siguientes expresiones:}
+\subsection*{a) $xyz \oplus x\overline{y}z$}
+\begin{center}
+  \includegraphics[width=8cm]{./imagenes/Ej2a.png}
+\end{center}
 
+\subsection*{b) $xy+x \overline{y} $}
+\begin{center}
+  \includegraphics[width=8cm]{./imagenes/Ej2b.png}
+\end{center}
 
+\subsection*{c) $xy\overline{z} + x \overline{yz}$}
+\begin{center}
+  \includegraphics[width=8cm]{./imagenes/Ej2c.png}
+\end{center}
 
+\subsection*{d) $\overline{x} + \overline{y} + xyz$}
+\begin{center}
+  \includegraphics[width=8cm]{./imagenes/Ej2d.png}
+\end{center}
 
 %====== Ejercicio 03 ======%
-\section{}3. Utilizando mapas de Karnaugh, reducir las siguientes expresiones y dibujar los
-circuitos reducidos:
+\section*{3. Utilizando mapas de Karnaugh, reducir las siguientes expresiones y dibujar los circuitos reducidos:}
 
 \subsection*{a) Expresión: \( xy + x\overline{y} \)}
 
-\textbf{Mapa de Karnaugh:}
-\[
+\textbf{Mapa de Karnaugh:}\[
 \begin{array}{c|cc}
 x \setminus y & 0 & 1 \\
 \hline
@@ -297,8 +307,29 @@ Todos los valores son 1, lo que significa que:
 
 
 %====== Ejercicio 04 ======%
+\section*{Diseñar un circuito decodificador con 4 etradas para la siguiente tabla de verdad, donde - denota cualquier valor, 0 o 1}
+\begin{table}[h!]
+\centering
+\begin{tabular}{| c | c | c | c | | c | c | c |}
+\hline
+\multicolumn{4}{|c||}{Entradas} & \multicolumn{3}{c|}{Salidas} \\
+\hline
+0 & 0 & 0 & 0 & - & - & 0 \\
+0 & 0 & 0 & 1 & 0 & 0 & 1 \\
+0 & 0 & 1 & - & 0 & 1 & 1 \\
+0 & 1 & - & - & 1 & 0 & 1 \\
+1 & - & - & - & 1 & 1 & 1 \\
+\hline
+$E_4$ & $E_3$ & $E_2$ & $E_1$ & $S_3$ & $S_2$ & $S_1$ \\
+\hline
+\end{tabular}
+%\caption{Tabla de Entradas y Salidas}
+%\label{tab:entradas_salidas}
+\end{table}
 
-
+\begin{center}
+  \includegraphics[width=8cm]{./imagenes/Ej4.png}
+\end{center}
 
 
 %====== Ejercicio 05 ======%
@@ -307,7 +338,7 @@ Todos los valores son 1, lo que significa que:
 
 
 %====== Ejercicio 06 ======%
-\section{}6. Expresar las siguientes oraciones como formulas de la lógica de predicados; indicar las constantes, las variables, los cuantificadores y su alcance:
+\section*{6. Expresar las siguientes oraciones como formulas de la lógica de predicados; indicar las constantes, las variables, los cuantificadores y su alcance:}
 
 \subsection*{a) "Hay algunos médicos que son odontólogos."}
 
@@ -374,22 +405,56 @@ Todos los valores son 1, lo que significa que:
 
 \textbf{Interpretación:} Para todo \( x \), si \( x \) es estudiante \( (E(x)) \), entonces \( x \) aprobó con nota 10 \( (A(x, 10)) \).
 %------   inciso f)  ------%
+\subsection*{f) Un estudiante reprobó el examen y abandonó el curso}
+Constantes: Examen y Curso\\
+Variables: Estudiante\\
+Cuantificadores: $\exists$ Estudiante\\ \\
 
+estudiante(x) := x es estudiante\\
+reprobar(x) := x reprobó el examen\\
+abandona(x) := x abandonó el curso\\
+$$ \exists x ((estudiante(x) \land reprobar(x)) \rightarrow abandona(x))$$
 
 %------   inciso g)  ------%
+\subsection*{g) Los gatos son mamíferos}
+Constantes: -\\
+Variables: gatos\\
+Cuantificadores: $\forall$ gatos \\ \\
 
+gato(x) := x es gato\\
+mamifero(x) := x es mamifero\\
+$$ \forall x (gato(x) \rightarrow mamifero(x))$$
 
 %------   inciso e)  ------%
-
+\subsection*{h) Un perro mordió a María}
+Constantes: Maria\\
+Variables: perros\\
+Cuantificadores: $\exists$ gato \\
+perro(x):=x es perro\\
+muerde(x,y):= x muerde a y\\
+$$\exists x (perro(x)^muerde(x,Maria))$$
 
 %------   inciso h)  ------%
+\subsection*{i) Las novelas de Cervantes son buenas y divertidas}
+Constante:Cervantes \\
+Variables: novelas\\
+Cuantificadores: $\forall $ novelas\\
 
-
+novela(x):=x es novela de cervantes
+byd(x):= x es buena y divertida
+$$\forall x (novela(x) \rightarrow byd(x))$$
 %------   inciso i)  ------%
+\subsection*{j) Si todos los gatos son felinos, entonces todos los gatos son mamiferos}
+Constante:- \\
+Variable: gatos\\
+Cuantificadores:$\forall $ gatos\\
 
-
+gato(x):= x es gato\\
+felino(x):= x es felino\\
+mamifero(x):= x es mamifero\\
+$$\forall x(gato(x)^felino(x) \rightarrow mamifero(x))$$
 %------   inciso j)  ------%
-
+\subsection*{k) }
 
 
 %====== Ejercicio 07 ======%
@@ -456,27 +521,78 @@ Todos los valores son 1, lo que significa que:
 
 \textbf{Alcance del cuantificador:}
 \begin{itemize}
-    \item El alcance de \( \exists y \) es \( R(a, y) \).
+    \item El alcance de \( x\exists y \) es \( R(a, y) \).
 \end{itemize}
 
 %------   inciso f)  ------%
+\subsection*{f)$ D(f(x,y) \vee \forall z R(z,r(y))$ }
 
+\textbf{Clasificacion de variables}
+\begin{itemize}
+    \item Variables libres: (x,y).
+    \item Varaibles ligadas: (z) esta cuantificada por ($\forall$ z).
+\end{itemize}
+
+\textbf{Alcance del cuantificador:}
+\begin{itemize}
+    \item El alcance de ($\forall$ z) es (R(z,r(y))).
+\end{itemize}
+  
 
 %------   inciso g)  ------%
+\subsection*{g) $\forall x$ ($L(x) \rightarrow R(a,x) \wedge  C(x,a)$)}
 
+\textbf{Clasificacion de variables:}
+\begin{itemize}
+    \item Variables Libres: (a).
+    \item Variables Ligadas: (x) esta cuantificada por ($\forall$ x).
+\end{itemize}
 
-%------   inciso e)  ------%
-
+\textbf{Alcance del cuantificador:}
+\begin{itemize}
+    \item El alcance de ($\forall$ x) es ($L(x) \rightarrow R(a,x) \wedge C(x,a)$).
+\end {itemize}
 
 %------   inciso h)  ------%
+\subsection*{h) $R(x,y,z) ^ \exists y R(y,x,z) \rightarrow \forall w I(x,y)$}
 
+\textbf{Clasificacion de variables:}
+\begin{itemize}
+    \item Variables Libres:(x,z).
+    \item Variables Ligadas: (y,w) esta cuantificada por ($\exists y$ y $\forall w$).
+\end{itemize}
+
+\textbf{Alcance del cuantificador:}
+\begin{itemize}
+    \item El alcance de ($\exists y$ y $\forall x$) es ($\exists R(y,x,z)$ y $\forall w I(x,y)$).
+\end{itemize}
 
 %------   inciso i)  ------%
+\subsection*{i) $\forall x(C(x,z) \wedge  R(x,y)) \rightarrow C(y,z)$}
 
+\textbf{Clasificacion de variables:}
+\begin{itemize}
+    \item Variables Libres: (y,z).
+    \item Variables Ligadas: (x) esta cuantificada por ($\forall x$ ).
+\end{itemize}
 
+\textbf{Alcance del cuantificador:}
+\begin{itemize}
+    \item El alcance de ($\forall x$ ) es ($C(x,z) \wedge  R(x,y)$).
+\end{itemize}
 %------   inciso j)  ------%
+\subsection*{j) $\forall x \exists z I(x,z) \rightarrow C(z,y) \wedge  D(y)$}
 
+\textbf{Clasificacion de variables:}
+\begin{itemize}
+    \item Variables Libre:(y).
+    \item Variables Ligadas:(x,z) esta cuantificada por ($\forall x$ y $\exists z$ ).
+\end{itemize}
 
+\textbf{Alcance del cuantificador:}
+\begin{itemize}
+    \item El alcance de ($\forall x$ y $\exists z$ ) es ($\exists z I(x,z) \rightarrow C(z,y)$ ).
+\end{itemize}
 
 \end{document}
  
