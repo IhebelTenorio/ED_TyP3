@@ -353,6 +353,9 @@ $E_4$ & $E_3$ & $E_2$ & $E_1$ & $S_3$ & $S_2$ & $S_1$ \\
 
 \textbf{Interpretación:} Existe al menos un \( x \) tal que \( x \) es médico \( (M(x)) \) y \( x \) es odontólogo \( (O(x)) \).
 
+\textbf{ Alcance de \( \exists x \):}
+Toda la expresión \( [M(x) \land O(x)] \). Esto significa que el cuantificador existencial \( \exists x \) se aplica a la conjunción de \( M(x) \) y \( O(x) \), afirmando que existe al menos un \( x \) que es médico y odontólogo.
+
 \subsection*{b) "Ninguna planta es mamífero o pez."}
 
 \textbf{Constantes:} Ninguna \\
@@ -365,6 +368,9 @@ $E_4$ & $E_3$ & $E_2$ & $E_1$ & $S_3$ & $S_2$ & $S_1$ \\
 \]
 
 \textbf{Interpretación:} Para todo \( x \), si \( x \) es planta \( (P(x)) \), entonces \( x \) no es mamífero \( (M(x)) \) ni pez \( (Z(x)) \).
+
+\textbf{Alcance de \( \forall x \):}
+Toda la implicación \( [P(x) \to \neg (M(x) \lor Z(x))] \). Aquí, el cuantificador universal \( \forall x \) se aplica a toda la implicación, indicando que para cada \( x \), si \( x \) es planta, entonces \( x \) no es mamífero ni pez.
 
 \subsection*{c) "Cualquiera puede tomarle el pelo a la directora."}
 
@@ -379,6 +385,9 @@ $E_4$ & $E_3$ & $E_2$ & $E_1$ & $S_3$ & $S_2$ & $S_1$ \\
 
 \textbf{Interpretación:} Para todo \( x \), \( x \) puede tomarle el pelo a la directora \( (T(x, D)) \).
 
+\textbf{ Alcance de \( \forall x \):}
+La predicación \( T(x, D) \). El cuantificador universal \( \forall x \) se aplica directamente a \( T(x, D) \), indicando que para cada \( x \), \( x \) puede tomarle el pelo a la directora \( D \).
+
 \subsection*{d) "Hay un abogado a quien cualquiera le toma el pelo."}
 
 \textbf{Constantes:} Ninguna \\
@@ -392,6 +401,12 @@ $E_4$ & $E_3$ & $E_2$ & $E_1$ & $S_3$ & $S_2$ & $S_1$ \\
 
 \textbf{Interpretación:} Existe al menos un \( x \) tal que \( x \) es abogado \( (A(x)) \) y para todo \( y \), \( y \) le toma el pelo a \( x \) \( (T(y, x)) \).
 
+\textbf{Alcance de \( \exists x \):}
+La conjunción \( [A(x) \land \forall y \, T(y, x)] \). Esto significa que el cuantificador existencial \( \exists x \) se aplica a toda la expresión dentro de los corchetes, afirmando que existe al menos un \( x \) que es abogado y para cualquier \( y \), \( y \) le toma el pelo a \( x \).
+
+\textbf{Alcance de \( \forall y \):} La predicación \( T(y, x) \) dentro de la conjunción. El cuantificador universal \( \forall y \) está contenido dentro del alcance de \( \exists x \), aplicándose a la relación de \( y \) tomando el pelo a \( x \).
+
+
 \subsection*{e) "Cada uno de los estudiantes aprobó el examen con 10."}
 
 \textbf{Constantes:} Nota \( 10 \) \\
@@ -404,6 +419,9 @@ $E_4$ & $E_3$ & $E_2$ & $E_1$ & $S_3$ & $S_2$ & $S_1$ \\
 \]
 
 \textbf{Interpretación:} Para todo \( x \), si \( x \) es estudiante \( (E(x)) \), entonces \( x \) aprobó con nota 10 \( (A(x, 10)) \).
+
+\textbf{Alcance de \( \forall x \):}
+La implicación \( [E(x) \to A(x, 10)] \). El cuantificador universal \( \forall x \) se aplica a toda la implicación, indicando que para cada \( x \), si \( x \) es estudiante, entonces \( x \) aprobó el examen con nota \( 10 \).
 %------   inciso f)  ------%
 \subsection*{f) Un estudiante reprobó el examen y abandonó el curso}
 Constantes: Examen y Curso\\
