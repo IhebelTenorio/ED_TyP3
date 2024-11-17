@@ -38,7 +38,7 @@
     	\textbf{\large Universidad Nacional Autónoma de México}\\[0.1cm]
         \textbf{Facultad de Ciencias}\\[0.1cm]
         \textbf{Estructuras Discretas $|$ Grupo 7020}\\[0.1cm]
-        \textbf{Tarea 3: Circuitos y lógica de primer orden}\\[0.1cm]
+        \textbf{Tarea 2: Lógica Preposicional}\\[0.1cm]
         Real Araiza Yamile\\[0.1cm]
         Tenorio Reyes Ihebel Luro\\[0.1cm]
         12/Oct/2024
@@ -176,35 +176,35 @@ x \cdot (x + y) &= x \cdot x + x \cdot y & \text{(por distributividad)} \\
 %====== Ejercicio 03 ======%
 \section*{3. Utilizando mapas de Karnaugh, reducir las siguientes expresiones y dibujar los circuitos reducidos:}
 
-\subsection*{a) Expresión: \( xy + x\overline{y} \)}
+\subsection*{a) Expresión: \( xy + \overline{x}y \)}
 
 \textbf{Mapa de Karnaugh:}\[
 \begin{array}{c|cc}
-x \setminus y & 0 & 1 \\
+y \setminus x & 0 & 1 \\
 \hline
-0 & 0 & 0 \\
-1 & 1 & 1 \\
+0 & 0 & 1 \\
+1 & 1 & 0 \\
 \end{array}
 \]
 
 Se observa que se pueden agrupar los unos en una fila, lo que reduce la expresión a:
 \[
-x
+y
 \]
 
-\textbf{Expresión reducida:} \( x \)
+\textbf{Expresión reducida:} \( y \)
 
-\textbf{Circuito lógico:} Un solo cable que representa la variable \( x \).
+\textbf{Circuito lógico:} Un solo cable que representa la variable \( y \).
 
 \subsection*{b) Expresión: \( \overline{x}y + \overline{x}\overline{y} \)}
 
 \textbf{Mapa de Karnaugh:}
 \[
 \begin{array}{c|cc}
-x \setminus y & 0 & 1 \\
+y \setminus x & 0 & 1 \\
 \hline
-0 & 1 & 1 \\
-1 & 0 & 0 \\
+0 & 1 & 0 \\
+1 & 1 & 0 \\
 \end{array}
 \]
 
@@ -222,7 +222,7 @@ Los términos se pueden agrupar en la columna de \( \overline{x} \), resultando 
 \textbf{Mapa de Karnaugh:}
 \[
 \begin{array}{c|cccc}
-x \setminus yz & 00 & 01 & 11 & 10 \\
+yz \setminus x & 00 & 01 & 11 & 10 \\
 \hline
 0 & 0 & 0 & 1 & 0 \\
 1 & 0 & 0 & 1 & 0 \\
@@ -238,24 +238,24 @@ yz
 
 \textbf{Circuito lógico:} Un AND entre \( y \) y \( z \).
 
-\subsection*{d) Expresión: \( xy\overline{z} \ + x\overline{y} \overline{z} \ + \overline{x}y\overline{z} \ + \overline{x}\overline{y} \overline{z} \)}
+\subsection*{d) Expresión: \( xyz' + xy'z' + \overline{x}yz' + \overline{x}y'z' \)}
 
 \textbf{Mapa de Karnaugh:}
 \[
 \begin{array}{c|cccc}
-x \setminus yz & 00 & 01 & 11 & 10 \\
+yx \setminus z & 00 & 01 & 11 & 10 \\
 \hline
-0 & 1 & 0 & 0 & 1 \\
-1 & 1 & 0 & 0 & 1 \\
+0 & 1 & 1 & 0 & 0 \\
+1 & 1 & 1 & 0 & 0 \\
 \end{array}
 \]
 
-Se agrupan los unos en la fila de \( \overline{z} \), obteniendo:
+Se agrupan los unos en la fila de \( z' \), obteniendo:
 \[
-\overline{z} \
+z'
 \]
 
-\textbf{Expresión reducida:} \( \overline{z} \)
+\textbf{Expresión reducida:} \( z' \)
 
 \textbf{Circuito lógico:} Un inversor para la variable \( z \).
 
@@ -264,10 +264,10 @@ Se agrupan los unos en la fila de \( \overline{z} \), obteniendo:
 \textbf{Mapa de Karnaugh:}
 \[
 \begin{array}{c|cc}
-x \setminus y & 0 & 1 \\
+y \setminus x & 0 & 1 \\
 \hline
-0 & 1 & 1 \\
-1 & 0 & 1 \\
+0 & 1 & 0 \\
+1 & 1 & 1 \\
 \end{array}
 \]
 
@@ -285,7 +285,7 @@ y
 \textbf{Mapa de Karnaugh:}
 \[
 \begin{array}{c|cc}
-x \setminus y & 0 & 1 \\
+y \setminus x & 0 & 1 \\
 \hline
 0 & 1 & 1 \\
 1 & 1 & 1 \\
@@ -300,8 +300,6 @@ Todos los valores son 1, lo que significa que:
 \textbf{Expresión reducida:} \( 1 \)
 
 \textbf{Circuito lógico:} Una constante lógica de 1.
-
-\includegraphics[height=10.0cm]{./imagenes/circuitos.png}
 
 
 
@@ -333,28 +331,7 @@ $E_4$ & $E_3$ & $E_2$ & $E_1$ & $S_3$ & $S_2$ & $S_1$ \\
 
 
 %====== Ejercicio 05 ======%
-\section*{Diseñar un circuito secuencial flip-flop SR, pero utilizando circuitos NAND y verificar que el resultado es el mismo que con las compuertas NOR}
-Tenemos primero el circuito con NOR.
-\begin{center}
-  \includegraphics[width=9cm]{./imagenes/Ej50.png}
-\end{center}
-Entonces, el nuevo circuito con compuertas NAND es el siguiente
-\begin{center}
-  \includegraphics[width=9cm]{./imagenes/Ej5.png}
-\end{center}
-A pesar de las diferencias en el comportamiento de las compuertas:
 
-\begin{itemize}
-    \item Ambos diseños pueden almacenar un bit de información, manteniendo el último estado cuando $S = R = 0$ (para NOR) o $S = R = 1$ (para NAND).
-    \item Las condiciones para \textit{Set} y \textit{Reset} son equivalentes, aunque están invertidas:
-    \begin{itemize}
-        \item En un flip-flop SR con \textbf{NAND}, un cero en $S$ o $R$ activa el \textit{Set} o \textit{Reset}.
-        \item En un flip-flop SR con \textbf{NOR}, un uno en $S$ o $R$ activa el \textit{Set} o \textit{Reset}.
-    \end{itemize}
-    \item La diferencia en la lógica se compensa al aplicar las entradas de manera opuesta, logrando el mismo comportamiento general.
-\end{itemize}
-
-Por lo tanto, el flip-flop SR construido con compuertas \textbf{NAND} es funcionalmente equivalente al de compuertas \textbf{NOR}, ya que ambos implementan un circuito de memoria capaz de almacenar y cambiar su estado en función de las entradas $S$ y $R$.
 
 
 
@@ -374,9 +351,6 @@ Por lo tanto, el flip-flop SR construido con compuertas \textbf{NAND} es funcion
 
 \textbf{Interpretación:} Existe al menos un \( x \) tal que \( x \) es médico \( (M(x)) \) y \( x \) es odontólogo \( (O(x)) \).
 
-\textbf{ Alcance de \( \exists x \):}
-Toda la expresión \( [M(x) \land O(x)] \). Esto significa que el cuantificador existencial \( \exists x \) se aplica a la conjunción de \( M(x) \) y \( O(x) \), afirmando que existe al menos un \( x \) que es médico y odontólogo.
-
 \subsection*{b) "Ninguna planta es mamífero o pez."}
 
 \textbf{Constantes:} Ninguna \\
@@ -389,9 +363,6 @@ Toda la expresión \( [M(x) \land O(x)] \). Esto significa que el cuantificador 
 \]
 
 \textbf{Interpretación:} Para todo \( x \), si \( x \) es planta \( (P(x)) \), entonces \( x \) no es mamífero \( (M(x)) \) ni pez \( (Z(x)) \).
-
-\textbf{Alcance de \( \forall x \):}
-Toda la implicación \( [P(x) \to \neg (M(x) \lor Z(x))] \). Aquí, el cuantificador universal \( \forall x \) se aplica a toda la implicación, indicando que para cada \( x \), si \( x \) es planta, entonces \( x \) no es mamífero ni pez.
 
 \subsection*{c) "Cualquiera puede tomarle el pelo a la directora."}
 
@@ -406,9 +377,6 @@ Toda la implicación \( [P(x) \to \neg (M(x) \lor Z(x))] \). Aquí, el cuantific
 
 \textbf{Interpretación:} Para todo \( x \), \( x \) puede tomarle el pelo a la directora \( (T(x, D)) \).
 
-\textbf{ Alcance de \( \forall x \):}
-La predicación \( T(x, D) \). El cuantificador universal \( \forall x \) se aplica directamente a \( T(x, D) \), indicando que para cada \( x \), \( x \) puede tomarle el pelo a la directora \( D \).
-
 \subsection*{d) "Hay un abogado a quien cualquiera le toma el pelo."}
 
 \textbf{Constantes:} Ninguna \\
@@ -422,12 +390,6 @@ La predicación \( T(x, D) \). El cuantificador universal \( \forall x \) se apl
 
 \textbf{Interpretación:} Existe al menos un \( x \) tal que \( x \) es abogado \( (A(x)) \) y para todo \( y \), \( y \) le toma el pelo a \( x \) \( (T(y, x)) \).
 
-\textbf{Alcance de \( \exists x \):}
-La conjunción \( [A(x) \land \forall y \, T(y, x)] \). Esto significa que el cuantificador existencial \( \exists x \) se aplica a toda la expresión dentro de los corchetes, afirmando que existe al menos un \( x \) que es abogado y para cualquier \( y \), \( y \) le toma el pelo a \( x \).
-
-\textbf{Alcance de \( \forall y \):} La predicación \( T(y, x) \) dentro de la conjunción. El cuantificador universal \( \forall y \) está contenido dentro del alcance de \( \exists x \), aplicándose a la relación de \( y \) tomando el pelo a \( x \).
-
-
 \subsection*{e) "Cada uno de los estudiantes aprobó el examen con 10."}
 
 \textbf{Constantes:} Nota \( 10 \) \\
@@ -440,9 +402,6 @@ La conjunción \( [A(x) \land \forall y \, T(y, x)] \). Esto significa que el cu
 \]
 
 \textbf{Interpretación:} Para todo \( x \), si \( x \) es estudiante \( (E(x)) \), entonces \( x \) aprobó con nota 10 \( (A(x, 10)) \).
-
-\textbf{Alcance de \( \forall x \):}
-La implicación \( [E(x) \to A(x, 10)] \). El cuantificador universal \( \forall x \) se aplica a toda la implicación, indicando que para cada \( x \), si \( x \) es estudiante, entonces \( x \) aprobó el examen con nota \( 10 \).
 %------   inciso f)  ------%
 \subsection*{f) Un estudiante reprobó el examen y abandonó el curso}
 Constantes: Examen y Curso\\
@@ -458,45 +417,27 @@ $$ \exists x ((estudiante(x) \land reprobar(x)) \rightarrow abandona(x))$$
 \subsection*{g) Los gatos son mamíferos}
 Constantes: -\\
 Variables: gatos\\
-Cuantificadores: $\forall$ gatos \\ \\
+Cuantificadores: $\forall$gatos \\ \\
 
 gato(x) := x es gato\\
 mamifero(x) := x es mamifero\\
 $$ \forall x (gato(x) \rightarrow mamifero(x))$$
 
-%------   inciso h)  ------%
+%------   inciso e)  ------%
 \subsection*{h) Un perro mordió a María}
-Constantes: Maria\\
-Variables: perros\\
-Cuantificadores: $\exists$ gato \\
-perro(x):=x es perro\\
-muerde(x,y):= x muerde a y\\
-$$\exists x (perro(x) \land muerde(x,Maria))$$
+
+%------   inciso h)  ------%
+\subsection*{i) Las novelas de Cervantes son buenas y divertidas}
 
 %------   inciso i)  ------%
-\subsection*{i) Las novelas de Cervantes son buenas y divertidas}
-Constante:Cervantes \\
-Variables: novelas\\
-Cuantificadores: $\forall $ novelas\\
-
-novela(x):=x es novela de cervantes
-byd(x):= x es buena y divertida
-$$\forall x (novela(x) \rightarrow byd(x))$$
+\subsection*{j) Si todos los gatos son felinos, entonces todos los gatos son mamiferos}
 
 %------   inciso j)  ------%
-\subsection*{j) Si todos los gatos son felinos, entonces todos los gatos son mamiferos}
-Constante:- \\
-Variable: gatos\\
-Cuantificadores:$\forall $ gatos\\
-
-gato(x):= x es gato\\
-felino(x):= x es felino\\
-mamifero(x):= x es mamifero\\
-$$\forall x((gato(x) \land felino(x)) \rightarrow mamifero(x))$$
+\subsection*{k) }
 
 
 %====== Ejercicio 07 ======%
-\section*{7. Por cada formula: 1) Clasificar la presencia de variables en libres y ligadas; 2)Indicar el alcance del cuantificador:}
+\section{}7. Por cada formula: 1) Clasificar la presencia de variables en libres y ligadas; 2)Indicar el alcance del cuantificador:
 
 \subsection*{a) \( R(x, y) \land L(y) \)}
 
@@ -559,78 +500,27 @@ $$\forall x((gato(x) \land felino(x)) \rightarrow mamifero(x))$$
 
 \textbf{Alcance del cuantificador:}
 \begin{itemize}
-    \item El alcance de \( x\exists y \) es \( R(a, y) \).
+    \item El alcance de \( \exists y \) es \( R(a, y) \).
 \end{itemize}
 
 %------   inciso f)  ------%
-\subsection*{f)$ D(f(x,y) \vee \forall z R(z,r(y))$ }
 
-\textbf{Clasificacion de variables}
-\begin{itemize}
-    \item Variables libres: (x,y).
-    \item Varaibles ligadas: (z) esta cuantificada por ($\forall$ z).
-\end{itemize}
-
-\textbf{Alcance del cuantificador:}
-\begin{itemize}
-    \item El alcance de ($\forall$ z) es (R(z,r(y))).
-\end{itemize}
-  
 
 %------   inciso g)  ------%
-\subsection*{g) $\forall x$ ($L(x) \rightarrow R(a,x) \wedge  C(x,a)$)}
 
-\textbf{Clasificacion de variables:}
-\begin{itemize}
-    \item Variables Libres: (a).
-    \item Variables Ligadas: (x) esta cuantificada por ($\forall$ x).
-\end{itemize}
 
-\textbf{Alcance del cuantificador:}
-\begin{itemize}
-    \item El alcance de ($\forall$ x) es ($L(x) \rightarrow R(a,x) \wedge C(x,a)$).
-\end {itemize}
+%------   inciso e)  ------%
+
 
 %------   inciso h)  ------%
-\subsection*{h) $R(x,y,z) \land \exists y R(y,x,z) \rightarrow \forall w I(x,y)$}
 
-\textbf{Clasificacion de variables:}
-\begin{itemize}
-    \item Variables Libres:(x,z).
-    \item Variables Ligadas: (y,w) esta cuantificada por ($\exists y$ y $\forall w$).
-\end{itemize}
-
-\textbf{Alcance del cuantificador:}
-\begin{itemize}
-    \item El alcance de ($\exists y$ y $\forall x$) es ($\exists R(y,x,z)$ y $\forall w I(x,y)$).
-\end{itemize}
 
 %------   inciso i)  ------%
-\subsection*{i) $\forall x(C(x,z) \wedge  R(x,y)) \rightarrow C(y,z)$}
 
-\textbf{Clasificacion de variables:}
-\begin{itemize}
-    \item Variables Libres: (y,z).
-    \item Variables Ligadas: (x) esta cuantificada por ($\forall x$ ).
-\end{itemize}
 
-\textbf{Alcance del cuantificador:}
-\begin{itemize}
-    \item El alcance de ($\forall x$ ) es ($C(x,z) \wedge  R(x,y)$).
-\end{itemize}
 %------   inciso j)  ------%
-\subsection*{j) $\forall x \exists z I(x,z) \rightarrow C(z,y) \wedge  D(y)$}
 
-\textbf{Clasificacion de variables:}
-\begin{itemize}
-    \item Variables Libre:(y).
-    \item Variables Ligadas:(x,z) esta cuantificada por ($\forall x$ y $\exists z$ ).
-\end{itemize}
 
-\textbf{Alcance del cuantificador:}
-\begin{itemize}
-    \item El alcance de ($\forall x$ y $\exists z$ ) es ($\exists z I(x,z) \rightarrow C(z,y)$ ).
-\end{itemize}
 
 \end{document}
  
